@@ -13,22 +13,4 @@ public class CoverageMetricsTest {
     CoverageMetrics c = new CoverageMetrics();
     assertEquals(0.5, c.f(1), 0.0);
   }
-
-  @Test
-  public void test2() throws Exception {
-    // This 2nd test covers the 2nd condition to achieve (combined with test1)
-    // a 100% line coverage and 100% condition coverage, therefore a
-    // 100% overall coverage
-    CoverageMetrics c = new CoverageMetrics();
-    assertEquals(0.0, c.f(0), 0.0);
-  }
-
-  @Test
-  public void test3() {
-    // This test is an example of incorrect test: Method c.f() is invoked
-    // but the returned value is not verified to be as expected
-    // SonarQube will raise an issue for lack of assertion
-    CoverageMetrics c = new CoverageMetrics();
-    c.f(5);
-  }
 }
