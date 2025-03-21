@@ -6,7 +6,7 @@ PROJECT_KEY="demo:coverage"
 
 git checkout "$MAIN_BRANCH"
 
-for branch in "$MAIN_BRANCH" partial-coverage-1 partial-coverage-2 hybrid-coverage
+for branch in "$MAIN_BRANCH" partial-coverage-1 partial-coverage-2 four-conds hybrid-coverage
 do
 	git checkout "$branch"
 	branchOpt=""
