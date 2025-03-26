@@ -4,6 +4,12 @@ MAIN_BRANCH="main"
 PROJECT_NAME="Coverage demo"
 PROJECT_KEY="demo:coverage"
 
+log () {
+	echo "================================================================================\n"
+	echo $*
+	echo "\n================================================================================\n"
+}
+
 git checkout "$MAIN_BRANCH"
 
 for branch in "$MAIN_BRANCH" partial-coverage-1 partial-coverage-2 four-conds hybrid-coverage
@@ -13,6 +19,7 @@ do
 	if [ "$branch" != "$MAIN_BRANCH" ]; then
 		branchOpt="-Dsonar.branch.name=$branch"
 	fi
+	log "Building, Testing and Analyzing branch $branch"
 	mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.jacoco:jacoco-maven-plugin:report \
 		-Dmaven.test.failure.ignore=true \
 		sonar:sonar $branchOpt \
